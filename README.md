@@ -1,0 +1,2 @@
+# iky
+untuk memperkenalkan diri 
