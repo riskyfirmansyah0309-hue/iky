@@ -1,0 +1,1084 @@
+
+echo "# Rizky-Firmansyah" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/riskyfirmansyah0309-hue/Rizky-Firmansyah.git
+git push -u origin main
+
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rizky Firmansyah | Web Profile</title>
+
+<style>
+/* ==================== VARIABEL WARNA ==================== */
+:root {
+    --biru-tua:   #0f2a45;
+    --biru-navy:  #1b3a5c;
+    --biru-mid:   #3d6b9a;
+    --biru-soft:  #6fa3d1;
+    --biru-muda:  #a8c8e8;
+    --krem:       #f7ecd9;
+    --krem-tua:   #e6d3b3;
+    --putih:      #fffaf0;
+    --teks:       #1f1f1f;
+    --teks-mute:  #6b6b6b;
+}
+
+/* ==================== RESET ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    color: var(--teks);
+    background: var(--krem);
+    padding-bottom: 60px;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ==================== BACKGROUND ANIMASI ==================== */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(111,163,209,0.35), transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(230,211,179,0.55), transparent 45%),
+        linear-gradient(135deg, #f7ecd9 0%, #dfeaf6 100%);
+    animation: bgFloat 18s ease-in-out infinite alternate;
+}
+
+@keyframes bgFloat {
+    0%   { transform: scale(1); }
+    100% { transform: scale(1.08); }
+}
+
+.blob {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+    z-index: -1;
+    pointer-events: none;
+    animation: blobMove 20s ease-in-out infinite alternate;
+}
+.blob-1 {
+    width: 400px; height: 400px;
+    background: var(--biru-soft);
+    top: -100px; left: -100px;
+}
+.blob-2 {
+    width: 350px; height: 350px;
+    background: var(--krem-tua);
+    bottom: -80px; right: -80px;
+    animation-delay: -5s;
+}
+@keyframes blobMove {
+    0%   { transform: translate(0,0) scale(1); }
+    100% { transform: translate(60px,40px) scale(1.15); }
+}
+
+/* ==================== HEADER ==================== */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 16px 30px;
+    background: rgba(15, 42, 69, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(247,236,217,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+    box-shadow: 0 6px 24px rgba(15,42,69,0.25);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--putih);
+    font-weight: 700;
+    font-size: 17px;
+}
+
+.brand-logo {
+    width: 42px; height: 42px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--krem), var(--krem-tua));
+    color: var(--biru-tua);
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    font-size: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.brand-text small {
+    display: block;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    opacity: 0.7;
+    text-transform: uppercase;
+    margin-top: 2px;
+}
+
+nav {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+nav button {
+    background: transparent;
+    border: none;
+    color: rgba(255,250,240,0.75);
+    padding: 9px 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 13.5px;
+    font-weight: 600;
+    font-family: inherit;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+nav button svg {
+    width: 16px; height: 16px;
+}
+
+nav button:hover {
+    color: var(--putih);
+    background: rgba(247,236,217,0.1);
+}
+
+nav button.active {
+    background: linear-gradient(135deg, var(--krem), var(--krem-tua));
+    color: var(--biru-tua);
+    box-shadow: 0 6px 18px rgba(230,211,179,0.4);
+}
+
+/* ==================== CONTAINER ==================== */
+.container {
+    max-width: 920px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* ==================== HALAMAN ==================== */
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+    animation: pageIn 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes pageIn {
+    0%   { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ==================== CARD ==================== */
+.card {
+    background: rgba(255, 250, 240, 0.88);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 26px;
+    padding: 36px;
+    box-shadow: 0 20px 50px rgba(15,42,69,0.18);
+    border: 1px solid rgba(255,255,255,0.7);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: -50px; right: -50px;
+    width: 160px; height: 160px;
+    background: radial-gradient(circle, var(--krem-tua), transparent 70%);
+    border-radius: 50%;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.card-title {
+    position: relative;
+    color: var(--biru-tua);
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.card-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 60px; height: 4px;
+    background: linear-gradient(90deg, var(--biru-mid), var(--krem-tua));
+    border-radius: 4px;
+}
+
+.card-title .badge {
+    background: linear-gradient(135deg, var(--biru-mid), var(--biru-navy));
+    color: var(--putih);
+    width: 40px; height: 40px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 6px 16px rgba(61,107,154,0.35);
+}
+
+.card-title .badge svg {
+    width: 20px; height: 20px;
+}
+
+/* ==================== HOME ==================== */
+.hero {
+    text-align: center;
+    padding: 50px 20px 40px;
+}
+
+.avatar-wrap {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 24px;
+}
+
+.avatar-wrap::before {
+    content: "";
+    position: absolute;
+    inset: -15px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg,
+        var(--biru-mid), var(--krem-tua), var(--biru-soft), var(--krem-tua), var(--biru-mid));
+    animation: spin 8s linear infinite;
+    opacity: 0.5;
+    z-index: 0;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.hero-avatar {
+    position: relative;
+    z-index: 1;
+    width: 170px; height: 170px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid var(--putih);
+    box-shadow: 0 12px 32px rgba(15,42,69,0.3);
+    background: var(--krem-tua);
+}
+
+.hero h1 {
+    color: var(--biru-tua);
+    font-size: 34px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.hero h1 .highlight {
+    background: linear-gradient(135deg, var(--biru-mid), var(--biru-soft));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero .tagline {
+    display: inline-block;
+    color: var(--biru-navy);
+    background: rgba(168,200,232,0.35);
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 13.5px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(61,107,154,0.2);
+}
+
+.hero p.desc {
+    color: var(--teks-mute);
+    max-width: 520px;
+    margin: 0 auto;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.hero-stats .stat { text-align: center; }
+
+.hero-stats .stat .num {
+    display: block;
+    font-size: 24px;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--biru-mid), var(--krem-tua));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-stats .stat .lbl {
+    font-size: 11px;
+    color: var(--teks-mute);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+}
+
+/* ==================== PROFILE ==================== */
+.profil-grid {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 32px;
+    align-items: start;
+}
+
+.foto-frame {
+    position: relative;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(15,42,69,0.25);
+    background: var(--krem-tua);
+}
+
+.profil-foto {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s;
+}
+
+.foto-frame:hover .profil-foto {
+    transform: scale(1.08);
+}
+
+.profil-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    padding: 14px 18px;
+    background: linear-gradient(90deg, var(--krem) 0%, rgba(230,211,179,0.4) 100%);
+    border-radius: 14px;
+    font-size: 14px;
+    border-left: 4px solid var(--biru-mid);
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.info-row:hover {
+    transform: translateX(6px);
+    box-shadow: 0 6px 16px rgba(15,42,69,0.1);
+}
+
+.info-row .label {
+    color: var(--biru-tua);
+    font-weight: 700;
+    min-width: 150px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.info-row .value {
+    color: var(--teks);
+    flex: 1;
+    font-weight: 500;
+}
+
+.hobi-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.hobi-tag {
+    background: linear-gradient(135deg, var(--biru-mid), var(--biru-navy));
+    color: var(--putih);
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(61,107,154,0.3);
+    transition: transform 0.2s;
+}
+
+.hobi-tag:hover {
+    transform: translateY(-3px) scale(1.05);
+}
+
+.deskripsi-box {
+    margin-top: 24px;
+    padding: 22px 26px;
+    background: linear-gradient(135deg, rgba(168,200,232,0.25), rgba(230,211,179,0.4));
+    border-radius: 18px;
+    border-left: 5px solid var(--biru-mid);
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: #3a3a3a;
+    position: relative;
+}
+
+.deskripsi-box strong {
+    color: var(--biru-tua);
+    display: block;
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+/* ==================== ALAMAT ==================== */
+.alamat-box {
+    background: linear-gradient(135deg, var(--krem), rgba(230,211,179,0.5));
+    padding: 22px 26px;
+    border-radius: 18px;
+    margin-bottom: 20px;
+    font-size: 14.5px;
+    line-height: 1.8;
+    border-left: 5px solid var(--biru-mid);
+}
+
+.alamat-box .kos-name {
+    font-size: 17px;
+    color: var(--biru-tua);
+    font-weight: 800;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.map-wrapper {
+    display: block;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 4px solid var(--putih);
+    box-shadow: 0 15px 40px rgba(15,42,69,0.25);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.map-wrapper:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 50px rgba(15,42,69,0.35);
+}
+
+.map-wrapper iframe {
+    width: 100%;
+    height: 340px;
+    border: 0;
+    display: block;
+    pointer-events: none;
+}
+
+.map-wrapper::after {
+    content: "Klik untuk buka di Google Maps";
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(0deg, rgba(15,42,69,0.9), transparent);
+    color: var(--putih);
+    padding: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.map-wrapper:hover::after {
+    opacity: 1;
+}
+
+/* ==================== JADWAL ==================== */
+.hari-block {
+    margin-bottom: 20px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(15,42,69,0.08);
+    transition: transform 0.3s;
+}
+
+.hari-block:hover {
+    transform: translateY(-3px);
+}
+
+.hari-title {
+    background: linear-gradient(135deg, var(--biru-navy), var(--biru-mid));
+    color: var(--putih);
+    padding: 14px 22px;
+    font-weight: 700;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    letter-spacing: 0.5px;
+}
+
+.hari-title .count {
+    background: rgba(247,236,217,0.25);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.matkul-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 22px;
+    background: var(--krem);
+    border-bottom: 1px solid rgba(230,211,179,0.5);
+    font-size: 14px;
+    transition: background 0.2s, padding 0.2s;
+}
+
+.matkul-row:hover {
+    background: var(--krem-tua);
+    padding-left: 28px;
+}
+
+.matkul-row:last-child {
+    border-bottom: none;
+}
+
+.jam-matkul {
+    color: var(--biru-navy);
+    font-weight: 700;
+    min-width: 115px;
+    font-size: 13px;
+}
+
+.nama-matkul {
+    color: #3a3a3a;
+    flex: 1;
+    font-weight: 600;
+}
+
+.ruang {
+    color: var(--biru-mid);
+    font-weight: 700;
+    font-size: 12px;
+    background: rgba(168,200,232,0.4);
+    padding: 4px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+/* ==================== SOSMED ==================== */
+.sosmed-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+.sosmed-link {
+    position: relative;
+    padding: 28px 22px;
+    border-radius: 22px;
+    text-decoration: none;
+    color: var(--putih);
+    text-align: center;
+    font-weight: 700;
+    transition: transform 0.35s, box-shadow 0.35s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    overflow: hidden;
+}
+
+.sosmed-link .icon {
+    width: 52px; height: 52px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.2);
+    display: grid;
+    place-items: center;
+    transition: transform 0.35s;
+    font-size: 26px;
+}
+
+.sosmed-link .uname {
+    font-size: 12px;
+    font-weight: 400;
+    opacity: 0.85;
+}
+
+.sosmed-link:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.3);
+}
+
+.sosmed-link:hover .icon {
+    transform: rotate(-10deg) scale(1.1);
+}
+
+.ig { background: linear-gradient(135deg, #f09433 0%, #dc2743 50%, #bc1888 100%); }
+.wa { background: linear-gradient(135deg, #25d366, #128c7e); }
+.li { background: linear-gradient(135deg, #0077b5, #005885); }
+
+/* ==================== FOOTER ==================== */
+footer {
+    text-align: center;
+    margin-top: 50px;
+    padding: 24px;
+    color: var(--biru-tua);
+    font-size: 13px;
+    opacity: 0.85;
+    font-weight: 500;
+}
+
+footer .heart {
+    display: inline-block;
+    animation: beat 1.5s ease-in-out infinite;
+}
+
+@keyframes beat {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.2); }
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 680px) {
+    header { padding: 14px 18px; }
+    .brand-text { font-size: 15px; }
+    nav { width: 100%; justify-content: center; }
+    nav button { padding: 7px 12px; font-size: 12.5px; }
+    nav button svg { width: 14px; height: 14px; }
+    .container { margin: 24px auto; }
+    .card { padding: 24px; border-radius: 22px; }
+    .hero { padding: 30px 10px; }
+    .hero h1 { font-size: 26px; }
+    .hero-avatar { width: 140px; height: 140px; }
+    .hero-stats { gap: 24px; }
+    .profil-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .foto-frame { max-width: 200px; margin: 0 auto; }
+    .info-row { flex-direction: column; gap: 6px; align-items: flex-start; }
+    .info-row .label { min-width: unset; }
+    .matkul-row { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .map-wrapper iframe { height: 260px; }
+    .card-title { font-size: 19px; }
+    .card-title .badge { width: 34px; height: 34px; }
+    .card-title .badge svg { width: 17px; height: 17px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Ornamen background -->
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+
+<!-- =====================================================
+     HEADER + NAVIGASI
+     ===================================================== -->
+<header>
+    <div class="brand">
+        <div class="brand-logo">RF</div>
+        <div class="brand-text">
+            Rizky Firmansyah
+            <small>Personal Web</small>
+        </div>
+    </div>
+
+    <nav>
+        <button class="nav-btn active" data-page="home">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 12L12 3l9 9M5 10v10h14V10"/>
+            </svg>
+            Home
+        </button>
+
+        <button class="nav-btn" data-page="profile">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="4"/>
+                <path d="M4 21c0-4 4-7 8-7s8 3 8 7"/>
+            </svg>
+            Profile
+        </button>
+
+        <button class="nav-btn" data-page="alamat">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-6 8-13a8 8 0 1 0-16 0c0 7 8 13 8 13z"/>
+                <circle cx="12" cy="9" r="3"/>
+            </svg>
+            Alamat
+        </button>
+
+        <button class="nav-btn" data-page="jadwal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="5" width="18" height="16" rx="2"/>
+                <path d="M3 10h18M8 3v4M16 3v4"/>
+            </svg>
+            Jadwal
+        </button>
+
+        <button class="nav-btn" data-page="sosmed">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="18" cy="5" r="3"/>
+                <circle cx="6" cy="12" r="3"/>
+                <circle cx="18" cy="19" r="3"/>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+            </svg>
+            Sosmed
+        </button>
+    </nav>
+</header>
+
+<!-- =====================================================
+     KONTEN UTAMA
+     ===================================================== -->
+<div class="container">
+
+    <!-- ---------- HOME ---------- -->
+    <section class="page active" id="home">
+        <div class="card hero">
+            <div class="avatar-wrap">
+                <!-- FOTO PROFIL DI HALAMAN HOME -->
+                <img 
+                    src="file:C:/Users/risky/Downloads/foto.jpeg" 
+                    alt="Foto Rizky Firmansyah"
+                    class="hero-avatar"
+                >
+            </div>
+            <h1>Halo, Saya <span class="highlight">Rizky Firmansyah</span></h1>
+            <span class="tagline">Mahasiswa • Kreatif • Suka Belajar</span>
+            <p class="desc">
+                Selamat datang di web profil pribadi saya. Silakan jelajahi menu di atas 
+                untuk mengenal saya lebih dekat — mulai dari profil, alamat kos, 
+                jadwal kuliah, hingga cara menghubungi saya.
+            </p>
+
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="num">19</span>
+                    <span class="lbl">Tahun</span>
+                </div>
+                <div class="stat">
+                    <span class="num">S1</span>
+                    <span class="lbl">Jenjang</span>
+                </div>
+                <div class="stat">
+                    <span class="num">3,7</span>
+                    <span class="lbl">IPK</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ---------- PROFILE ---------- -->
+    <section class="page" id="profile">
+        <div class="card">
+            <h2 class="card-title">
+                <span class="badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="8" r="4"/>
+                        <path d="M4 21c0-4 4-7 8-7s8 3 8 7"/>
+                    </svg>
+                </span>
+                Profil Lengkap
+            </h2>
+
+            <div class="profil-grid">
+                <div class="foto-frame">
+                    <!-- FOTO PROFIL DI HALAMAN PROFILE -->
+                    <img 
+                        src="file:C:/Users/risky/Downloads/foto.jpeg" 
+                        alt="Foto Rizky Firmansyah"
+                        class="profil-foto"
+                    >
+                </div>
+
+                <div class="profil-info">
+                    <div class="info-row">
+                        <span class="label">Nama</span>
+                        <span class="value">Rizky Firmansyah</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">Program Studi</span>
+                        <span class="value">Teknik Geomatika</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">NIM</span>
+                        <span class="value">124230006</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">TTL</span>
+                        <span class="value">Dumai, 05 Maret 2006</span>
+                    </div>
+                    <div class="info-row" style="flex-direction:column; align-items:flex-start;">
+                        <span class="label">Hobi</span>
+                        <div class="hobi-list">
+                            <span class="hobi-tag">Belajar</span>
+                            <span class="hobi-tag">Memasak</span>
+                            <span class="hobi-tag">Olahraga</span>
+                            <span class="hobi-tag">Gaming</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="deskripsi-box">
+                <strong>Tentang Saya</strong>
+                Saya Rizky Firmansyah, "Saya merupakan individu yang proaktif, teliti, dan berorientasi pada detail dengan kemampuan beradaptasi yang cepat. Terbiasa bekerja secara mandiri 		maupun berkolaborasi di dalam tim, serta didukung oleh keterampilan komunikasi yang efektif dan kemampuan pemecahan masalah yang baik. Saya siap memberikan kontribusi nyata 		serta berkembang secara profesional di industri ini."
+            </div>
+        </div>
+    </section>
+
+    <!-- ---------- ALAMAT ---------- -->
+    <section class="page" id="alamat">
+        <div class="card">
+            <h2 class="card-title">
+                <span class="badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-6 8-13a8 8 0 1 0-16 0c0 7 8 13 8 13z"/>
+                        <circle cx="12" cy="9" r="3"/>
+                    </svg>
+                </span>
+                Alamat Kos
+            </h2>
+
+            <div class="alamat-box">
+                <span class="kos-name">Ryacudu Gg. Kopi Raya</span>
+                Jl. Terusan Ryacudu No. 10, Jatisari, Jatimulyo<br>
+                Kec. Jati Agung, Kabupaten Lampung Selatan<br>
+                Lampung 35365
+            </div>
+
+            <a 
+                href="https://share.google/SEmMZ18B5zhUcfnys"
+                target="_blank"
+                class="map-wrapper"
+            >
+                <iframe 
+                    src="https://maps.google.com/maps?q=Jl.%20Terusan%20Ryacudu%20No.10%20Jatisari%20Jatimulyo%20Jati%20Agung%20Lampung%20Selatan&z=15&output=embed"
+                    loading="lazy">
+                </iframe>
+            </a>
+        </div>
+    </section>
+
+    <!-- ---------- JADWAL ---------- -->
+    <section class="page" id="jadwal">
+        <div class="card">
+            <h2 class="card-title">
+                <span class="badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="5" width="18" height="16" rx="2"/>
+                        <path d="M3 10h18M8 3v4M16 3v4"/>
+                    </svg>
+                </span>
+                Jadwal Kuliah
+            </h2>
+
+            <!-- SENIN -->
+            <div class="hari-block">
+                <div class="hari-title">Senin <span class="count">4 MK</span></div>
+                <div class="matkul-row">
+                    <span class="jam-matkul">07.30 - 09.15</span>
+                    <span class="nama-matkul">SIG Berbasis Web</span>
+                    <span class="ruang">GK2 302</span>
+                </div>
+                <div class="matkul-row">
+                    <span class="jam-matkul">11.05 - 12.55</span>
+                    <span class="nama-matkul">Agama Islam R3</span>
+                    <span class="ruang">GK2 403</span>
+                </div>
+                <div class="matkul-row">
+                    <span class="jam-matkul">13.00 - 15.40</span>
+                    <span class="nama-matkul">Asprak Geodesi Satelit RA-RC</span>
+                    <span class="ruang">Lab MM</span>
+                </div>
+                <div class="matkul-row">
+                    <span class="jam-matkul">15.45 - 17.30</span>
+                    <span class="nama-matkul">Penginderaan Jauh Perkotaan</span>
+                    <span class="ruang">GK2 123</span>
+                </div>
+            </div>
+
+            <!-- SELASA -->
+            <div class="hari-block">
+                <div class="hari-title">Selasa <span class="count">2 MK</span></div>
+                <div class="matkul-row">
+                    <span class="jam-matkul">07.30 - 11.05</span>
+                    <span class="nama-matkul">Praktikum PJL</span>
+                    <span class="ruang">Lab MM (6)</span>
+                </div>
+                <div class="matkul-row">
+                    <span class="jam-matkul">13.00 - 15.40</span>
+                    <span class="nama-matkul">Asprak Karto RA</span>
+                    <span class="ruang">Lab MM</span>
+                </div>
+            </div>
+
+            <!-- RABU -->
+            <div class="hari-block">
+                <div class="hari-title">Rabu <span class="count">3 MK</span></div>
+                <div class="matkul-row">
+                    <span class="jam-matkul">07.30 - 10.10</span>
+                    <span class="nama-matkul">Praktikum Fotogrametri Dasar</span>
+                    <span class="ruang">-</span>
+                </div>
+                <div class="matkul-row">
+                    <span class="jam-matkul">13.00 - 15.40</span>
+                    <span class="nama-matkul">Praktikum Hidrografi I</span>
+                    <span class="ruang">-</span>
+                </div>
+                <div class="matkul-row">
+                    <span class="jam-matkul">13.00 - 14.45</span>
+                    <span class="nama-matkul">Fotogrametri Dasar</span>
+                    <span class="ruang">E307</span>
+                </div>
+            </div>
+
+            <!-- KAMIS -->
+            <div class="hari-block">
+                <div class="hari-title">Kamis <span class="count">4 MK</span></div>
+                <div class="matkul-row">
+                    <span class="jam-matkul">07.30 - 09.15</span>
+                    <span class="nama-matkul">Hidrografi I</span>
+                    <span class="ruang">E313</span>
+                </div>
+                <div class="matkul-row">
+                    <span class="jam-matkul">09.20 - 11.05</span>
+                    <span class="nama-matkul">Penginderaan Jauh Lanjut</span>
+                    <span class="ruang">GK2 205</span>
+                </div>
+                <div class="matkul-row">
+                    <span class="jam-matkul">13.00 - 14.45</span>
+                    <span class="nama-matkul">Pemrograman Geomatika</span>
+                    <span class="ruang">GK2 203</span>
+                </div>
+                <div class="matkul-row">
+                    <span class="jam-matkul">15.45 - 17.30</span>
+                    <span class="nama-matkul">Pendaftaran Tanah</span>
+                    <span class="ruang">GK2 102</span>
+                </div>
+            </div>
+
+            <!-- JUMAT -->
+            <div class="hari-block">
+                <div class="hari-title">Jumat <span class="count">1 MK</span></div>
+                <div class="matkul-row">
+                    <span class="jam-matkul">07.30 - 09.15</span>
+                    <span class="nama-matkul">Geografi Lingkungan</span>
+                    <span class="ruang">GK2 209</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ---------- SOSMED ---------- -->
+    <section class="page" id="sosmed">
+        <div class="card">
+            <h2 class="card-title">
+                <span class="badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="18" cy="5" r="3"/>
+                        <circle cx="6" cy="12" r="3"/>
+                        <circle cx="18" cy="19" r="3"/>
+                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+                    </svg>
+                </span>
+                Hubungi & Ikuti Saya
+            </h2>
+
+            <div class="sosmed-grid">
+                <a href="https://www.instagram.com/firmans_rrf" 
+                   target="_blank" class="sosmed-link ig">
+                    <span class="icon">📷</span>
+                    <span>Instagram</span>
+                    <span class="uname">@firmans_rrf</span>
+                </a>
+
+                <a href="https://wa.me/qr/A2V7WK5YNQ55I1" 
+                   target="_blank" class="sosmed-link wa">
+                    <span class="icon">💬</span>
+                    <span>WhatsApp</span>
+                    <span class="uname">0821-7241-4390</span>
+                </a>
+
+                <a href="https://www.linkedin.com/in/rizky-firmansyah-6b0181323" 
+                   target="_blank" class="sosmed-link li">
+                    <span class="icon">💼</span>
+                    <span>LinkedIn</span>
+                    <span class="uname">Rizky Firmansyah</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        © 2025 Rizky Firmansyah | Dibuat dengan <span class="heart">💙</span>
+    </footer>
+
+</div>
+
+<!-- =====================================================
+     JAVASCRIPT: PINDAH HALAMAN
+     ===================================================== -->
+<script>
+const navButtons = document.querySelectorAll('.nav-btn');
+const pages      = document.querySelectorAll('.page');
+
+navButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('data-page');
+
+        navButtons.forEach(b => b.classList.remove('active'));
+        pages.forEach(p => p.classList.remove('active'));
+
+        btn.classList.add('active');
+        document.getElementById(targetId).classList.add('active');
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+});
+</script>
+
+</body>
+</html>
